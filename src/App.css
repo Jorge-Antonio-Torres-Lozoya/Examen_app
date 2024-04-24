@@ -1,0 +1,63 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.app h1 {
+  margin-bottom: 20px;
+}
+
+.app input[type="text"],
+.app select {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.app button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.app button:hover {
+  background-color: #0056b3;
+}
+
+.app .jugador-form {
+  margin-bottom: 20px;
+}
+
+.app .jugador-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.app .jugador-form input[type="text"],
+.app .jugador-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.app .jugador-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.app .jugador-form .buttons {
+  text-align: right;
+}
+
+.app .jugador-form .buttons button {
+  margin-left: 10px;
+}
