@@ -34,7 +34,7 @@ const JugadorForm = ({ jugador, onSave }) => {
 
   return (
     <div className="jugador-form">
-      <h2>{jugador ? 'Editar Jugador' : 'Agregar Jugador'}</h2>
+      <h2 className='mt-4'>{jugador ? 'Editar Jugador' : 'Agregar Jugador'}</h2>
       <label htmlFor="nombre">Nombre:</label>
       <input
         type="text"
@@ -117,8 +117,8 @@ const JugadorForm = ({ jugador, onSave }) => {
         value={imageUrl}
         onChange={(e) => setImageUrl(e.target.value)}
       />
-      <div className="buttons">
-        <button onClick={handleSaveJugador}>{jugador ? 'Guardar' : 'Agregar'}</button>
+      <div className="buttons d-flex">
+        <button className='ms-0' onClick={handleSaveJugador}>{jugador ? 'Guardar' : 'Agregar'}</button>
       </div>
     </div>
   );

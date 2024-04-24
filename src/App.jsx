@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import JugadoresList from './Componentes/JugadoresList';
-import Modal from './Componentes/Modal';
-import JugadorForm from './Componentes/JugadorForm';
-import './App.css';
+import React, { useState } from "react";
+import JugadoresList from "./Componentes/JugadoresList";
+import Modal from "./Componentes/Modal";
+import JugadorForm from "./Componentes/JugadorForm";
+import "./App.css";
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 const App = () => {
   const [jugadores, setJugadores] = useState([]);
   const [editingJugador, setEditingJugador] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState('none'); // Ordenar por defecto: ninguno
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("none"); // Ordenar por defecto: ninguno
 
   const handleAddJugador = (nuevoJugador) => {
     setJugadores([...jugadores, nuevoJugador]);
@@ -22,7 +24,7 @@ const App = () => {
   };
 
   const handleSaveChanges = (jugadorEditado) => {
-    const nuevosJugadores = jugadores.map(jugador =>
+    const nuevosJugadores = jugadores.map((jugador) =>
       jugador.id === jugadorEditado.id ? jugadorEditado : jugador
     );
     setJugadores(nuevosJugadores);
@@ -31,7 +33,7 @@ const App = () => {
   };
 
   const handleDeleteJugador = (id) => {
-    const nuevosJugadores = jugadores.filter(jugador => jugador.id !== id);
+    const nuevosJugadores = jugadores.filter((jugador) => jugador.id !== id);
     setJugadores(nuevosJugadores);
   };
 
@@ -44,16 +46,16 @@ const App = () => {
   };
 
   const compareFunction = (a, b) => {
-    if (sortBy === 'A-Z') {
+    if (sortBy === "A-Z") {
       return a.nombre.localeCompare(b.nombre);
-    } else if (sortBy === 'Z-A') {
+    } else if (sortBy === "Z-A") {
       return b.nombre.localeCompare(a.nombre);
     }
     // Si no se selecciona ninguna opción de orden, mantener el orden en que se añadieron
     return jugadores.indexOf(a) - jugadores.indexOf(b);
   };
 
-  const filteredJugadores = jugadores.filter(jugador =>
+  const filteredJugadores = jugadores.filter((jugador) =>
     jugador.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -63,6 +65,7 @@ const App = () => {
     <div className="app">
       <h1>Administrador de Jugadores</h1>
       <input
+      className="mx-2"
         type="text"
         placeholder="Buscar por nombre"
         value={searchTerm}
@@ -74,10 +77,13 @@ const App = () => {
         <option value="Z-A">Z-A</option>
       </select>
       <JugadorForm onSave={handleAddJugador} />
-      <JugadoresList jugadores={sortedJugadores} onEditJugador={handleEditJugador} onDeleteJugador={handleDeleteJugador} />
+      <JugadoresList
+        jugadores={sortedJugadores}
+        onEditJugador={handleEditJugador}
+        onDeleteJugador={handleDeleteJugador}
+      />
       {modalOpen && (
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-          <h2>Editar Jugador</h2>
           <JugadorForm jugador={editingJugador} onSave={handleSaveChanges} />
         </Modal>
       )}

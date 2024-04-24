@@ -13,7 +13,7 @@ const Jugador = ({ jugador, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="jugador">
+    <div className="jugador d-flex justify-content-center flex-column align-items-center py-4 px-4">
       <h3>{nombre}</h3>
       <p>{descripcion}</p>
       <ul>
@@ -23,9 +23,11 @@ const Jugador = ({ jugador, onEdit, onDelete }) => {
       </ul>
       <p>Patrocinador: {seleccionado}</p>
       <p>Equipo: {categoria}</p>
-      {imageUrl && <img src={imageUrl} alt="Imagen del jugador" />}
+      {imageUrl && <img width={300} height={200} src={imageUrl} alt="Imagen del jugador" />}
+      <div className='d-flex gap-3 justify-content-center mt-3'>
       <button onClick={handleEditClick}>Editar</button>
       <button onClick={handleDeleteClick}>Eliminar</button>
+      </div>
     </div>
   );
 };

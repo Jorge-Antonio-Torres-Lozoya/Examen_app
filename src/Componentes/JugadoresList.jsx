@@ -1,19 +1,21 @@
-import React from 'react';
-import Jugador from './Jugador';
-import './JugadoresList.css';
+import React from "react";
+import Jugador from "./Jugador";
+import "./JugadoresList.css";
 
 const JugadoresList = ({ jugadores, onEditJugador, onDeleteJugador }) => {
   return (
-    <div className="jugadores-list">
+    <div>
       <h2>Lista de Jugadores</h2>
-      {jugadores.map(jugador => (
-        <Jugador
-          key={jugador.id}
-          jugador={jugador}
-          onEdit={onEditJugador} 
-          onDelete={onDeleteJugador}
-        />
-      ))}
+      <div className="jugadores-list d-flex gap-3 ">
+        {jugadores.map((jugador) => (
+          <Jugador
+            key={jugador.id}
+            jugador={jugador}
+            onEdit={onEditJugador}
+            onDelete={onDeleteJugador}
+          />
+        ))}
+      </div>
     </div>
   );
 };
